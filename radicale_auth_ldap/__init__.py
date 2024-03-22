@@ -97,8 +97,10 @@ class Auth(BaseAuth):
 
         options = configuration.options("auth")
 
-        if "ldap_url" not in options: raise RuntimeError("The ldap_url configuration for ldap auth is required.")
-        if "ldap_base" not in options: raise RuntimeError("The ldap_base configuration for ldap auth is required.")
+        if "ldap_url" not in options:
+            raise RuntimeError("The ldap_url configuration for ldap auth is required.")
+        if "ldap_base" not in options:
+            raise RuntimeError("The ldap_base configuration for ldap auth is required.")
 
         # also get rid of trailing slashes which are typical for uris
         self.ldap_url = configuration.get("auth", "ldap_url").rstrip("/")
@@ -106,37 +108,27 @@ class Auth(BaseAuth):
         try:
             self.ldap_filter = configuration.get("auth", "ldap_filter")
         except KeyError:
-                pass
+            pass
         try:
             self.ldap_attribute = configuration.get("auth", "ldap_attribute")
         except KeyError:
-                pass
+            pass
         try:
             self.ldap_binddn = configuration.get("auth", "ldap_binddn")
         except KeyError:
-                pass
+            pass
         try:
             self.ldap_password = configuration.get("auth", "ldap_password")
         except KeyError:
-                pass
+            pass
         try:
             self.ldap_scope = configuration.get("auth", "ldap_scope")
         except KeyError:
-                pass
+            pass
         try:
             self.ldap_support_extended = configuration.get("auth", "ldap_support_extended")
         except KeyError:
-                pass
-
-        logger.info("LDAP auth configuration:")
-        logger.info("  %r is %r", "ldap_url", self.ldap_url)
-        logger.info("  %r is %r", "ldap_base", self.ldap_base)
-        logger.info("  %r is %r", "ldap_filter", self.ldap_filter)
-        logger.info("  %r is %r", "ldap_attribute", self.ldap_attribute)
-        logger.info("  %r is %r", "ldap_binddn", self.ldap_binddn)
-        logger.info("  %r is %r", "ldap_password", self.ldap_password)
-        logger.info("  %r is %r", "ldap_scope", self.ldap_scope)
-        logger.info("  %r is %r", "ldap_support_extended", self.ldap_support_extended)
+            pass
 
     def login(self, login, password):
         """Check if ``login``/``password`` couple is valid."""
@@ -197,5 +189,5 @@ class Auth(BaseAuth):
                 logger.error("LDAP error %s" % err)
             return ""
         else:
-            logger.error("LDAP user %s not found" % user)
+            logger.error("LDAP user %s not found" % login)
             return ""
