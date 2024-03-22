@@ -1,5 +1,6 @@
 # What is this?
 This is an authentication plugin for Radicale 3. It adds an LDAP authentication backend which can be used for authenticating users against an LDAP server.
+This Plugin is Garbage. Only use until a better alternative is available, like the one that radicale wants to provide itself, then IMMEDIATELY switch.
 
 Use the `2-final` git tag for Radicale 2 support.
 

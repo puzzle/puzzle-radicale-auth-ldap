@@ -3,8 +3,8 @@
 from distutils.core import setup
 
 setup(
-    name="radicale-auth-ldap",
-    version="0.2",
+    name="puzzle-radicale-auth-ldap",
+    version="0.1",
     description="LDAP Authentication Plugin for Radicale 3",
     author="Raoul Thill",
     license="GNU GPL v3",
