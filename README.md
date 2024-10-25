@@ -1,3 +1,7 @@
+# DEPRECATED
+
+As of [Radicale 3.3.0](https://github.com/Kozea/Radicale/releases/tag/v3.3.0) ldap support is included and the plugin is no longer required
+
 # What is this?
 This is an authentication plugin for Radicale 3. It adds an LDAP authentication backend which can be used for authenticating users against an LDAP server.
 
